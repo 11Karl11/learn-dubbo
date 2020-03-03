@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: hello-dubbo-service-user-provider
+user:
+  service:
+    version: 1.0.0
+dubbo:
+  scan:
+    basePackages: com.hangz.hello.dubbo.service.user.provider.api
+  application:
+    id: hello-dubbo-service-user-provider
+    name: hello-dubbo-service-user-provider
+    qos-port: 22222
+    qos-enable: true
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12345
+    status: server
+    serialization: kryo
+  registry:
+    id: zookeeper
+    address: zookeeper://192.168.183.128:2181
+  provider:
+    loadbalance: roundrobin
+# Enables Dubbo All Endpoints
+management:
+  endpoint:
+    dubbo:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-configs:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-references:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+  # Dubbo Health
+  health:
+    dubbo:
+      status:
+        ## StatusChecker Name defaults (default : "memory", "load" )
+        defaults: memory
+        ## StatusChecker Name extras (default : empty )
+        extras: load,threadpool
+
+
