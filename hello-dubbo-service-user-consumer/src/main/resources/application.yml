@@ -2,7 +2,7 @@ spring:
   application:
     name: hello-dubbo-service-user-consumer
 server:
-  port: 9090
+  port: 9091
 user:
   service:
     version: 1.0.0
@@ -14,7 +14,10 @@ dubbo:
     name: hello-dubbo-service-user-consumer
   registry:
     id: zookeeper
-    address: zookeeper://192.168.183.128:2181
+    address: zookeeper://192.168.136.130:2181
+    check: false
+  consumer:
+    check: false
 
 
 # Enables Dubbo All Endpoints
